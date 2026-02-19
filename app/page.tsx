@@ -1,44 +1,64 @@
+import Link from "next/link";
+import styles from "./page.module.css";
+
 export default function HomePage() {
   return (
-    <main style={{ padding: "40px 16px" }}>
-      <div style={{ maxWidth: 1120, margin: "0 auto" }}>
-        <h1 style={{ fontSize: 40, margin: 0 }}>ViraMebel</h1>
-        <p style={{ marginTop: 12, color: "#6b7280" }}>
-          Меблі на замовлення в Одесі. Це тестова головна сторінка — далі
-          зробимо дизайн.
-        </p>
+    <main>
+      <section className={styles.hero}>
+        <div className={`container ${styles.heroGrid}`}>
+          <div>
+            <p className={styles.kicker}>
+              Одеса та область • меблі на замовлення
+            </p>
 
-        <div
-          style={{ marginTop: 24, display: "flex", gap: 12, flexWrap: "wrap" }}
-        >
-          <a
-            href="/rozrahunok"
-            style={{
-              background: "#D86000",
-              color: "white",
-              padding: "12px 18px",
-              borderRadius: 999,
-              fontWeight: 600,
-              textDecoration: "none",
-            }}
-          >
-            Замовити розрахунок
-          </a>
+            <h1 className={styles.h1}>
+              Кухні, шафи та гардеробні — під ваші розміри
+            </h1>
 
-          <a
-            href="/katalog"
-            style={{
-              border: "1px solid rgba(17,24,39,0.15)",
-              padding: "12px 18px",
-              borderRadius: 999,
-              fontWeight: 600,
-              textDecoration: "none",
-            }}
-          >
-            Перейти в каталог
-          </a>
+            <p className={styles.lead}>
+              Замір, проєкт, виготовлення та монтаж. Розрахунок вартості —
+              швидко і без зайвих дзвінків.
+            </p>
+
+            <div className={styles.actions}>
+              <Link href="/rozrahunok" className={styles.primaryBtn}>
+                Замовити розрахунок
+              </Link>
+              <Link href="/katalog" className={styles.secondaryBtn}>
+                Переглянути роботи
+              </Link>
+            </div>
+
+            <div className={styles.stats}>
+              <div className="card" style={{ padding: 14 }}>
+                <div className={styles.statTitle}>Термін</div>
+                <div className={styles.statValue}>від 14 днів</div>
+              </div>
+              <div className="card" style={{ padding: 14 }}>
+                <div className={styles.statTitle}>Гарантія</div>
+                <div className={styles.statValue}>12 міс.</div>
+              </div>
+              <div className="card" style={{ padding: 14 }}>
+                <div className={styles.statTitle}>Підхід</div>
+                <div className={styles.statValue}>під ключ</div>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.heroMock}>
+            <div className={styles.mockTop}>Проєкт • Виготовлення • Монтаж</div>
+            <div className={styles.mockBody}>
+              <div className={styles.mockLine} />
+              <div className={styles.mockLine} />
+              <div className={styles.mockLineShort} />
+              <div className={styles.mockCardRow}>
+                <div className={styles.mockCard} />
+                <div className={styles.mockCard} />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     </main>
   );
 }
