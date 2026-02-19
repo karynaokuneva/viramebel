@@ -1,0 +1,15 @@
+.wrap {
+  padding: 34px 0 18px;
+}
+
+.title {
+  margin: 0;
+  font-size: 34px;
+  letter-spacing: -0.3px;
+}
+
+.subtitle {
+  margin: 10px 0 0;
+  color: var(--muted);
+  max-width: 70ch;
+}

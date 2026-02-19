@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  background: var(--primary);
+  background: var(--primary) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
