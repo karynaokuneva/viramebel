@@ -1,0 +1,12 @@
+.card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.title {
+  margin-top: 10px;
+  font-weight: 900;
+  font-size: 14px;
+  color: var(--text);
+}
