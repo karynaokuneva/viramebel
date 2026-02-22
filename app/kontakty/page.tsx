@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
 import styles from "./contacts.module.css";
+import { LeadForm } from "@/components/LeadForm";
 
 export default function ContactsPage() {
   return (
@@ -59,6 +60,9 @@ export default function ContactsPage() {
                 src="https://www.google.com/maps?q=Odesa%20%D0%9C%D0%B0%D1%80%D1%88%D0%B0%D0%BB%D0%B0%20%D0%91%D0%B0%D0%B1%D0%B0%D0%B4%D0%B6%D0%B0%D0%BD%D1%8F%D0%BD%D0%B0%2040%D0%92&output=embed"
               />
             </div>
+          </div>
+          <div style={{ marginTop: 16 }}>
+            <LeadForm variant="contact" />
           </div>
         </div>
       </section>
