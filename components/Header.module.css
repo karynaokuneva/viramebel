@@ -3,7 +3,7 @@
   top: 0;
   z-index: 20;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(16, 104, 120, 0.6); /* прозрачность */
+  background: rgb(16, 104, 120, 0.9); /* прозрачность */
   backdrop-filter: blur(8px); /* эффект стекла */
 }
 
