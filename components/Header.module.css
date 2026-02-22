@@ -2,8 +2,9 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  background: var(--primary);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(16, 104, 120, 0.6); /* прозрачность */
+  backdrop-filter: blur(8px); /* эффект стекла */
 }
 
 .row {
@@ -11,17 +12,19 @@
   align-items: center;
   justify-content: space-between;
   padding: 14px 0;
-  gap: 16px;
+  gap: 12px;
 }
 
 .logo {
   color: white;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 0.3px;
   text-decoration: none;
+  margin: 2%;
 }
 
-.nav {
+/* Desktop nav */
+.navDesktop {
   display: flex;
   align-items: center;
   gap: 18px;
@@ -31,7 +34,7 @@
 .link {
   color: rgba(255, 255, 255, 0.92);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .link:hover {
@@ -42,7 +45,7 @@
   margin-left: 6px;
   background: var(--accent);
   color: white;
-  font-weight: 700;
+  font-weight: 900;
   text-decoration: none;
   padding: 10px 14px;
   border-radius: 999px;
@@ -50,4 +53,72 @@
 
 .cta:hover {
   filter: brightness(0.96);
+}
+
+/* Burger (hidden on desktop) */
+.burger {
+  display: none;
+  width: 44px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 2%;
+  margin: 2%;
+  cursor: pointer;
+}
+
+.burgerLine {
+  display: block;
+  height: 2px;
+  background: white;
+  border-radius: 999px;
+  margin: 5px 0;
+}
+
+/* Mobile panel */
+.mobilePanel {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--primary);
+}
+
+.mobileNav {
+  display: grid;
+  gap: 10px;
+  padding: 12px 0 16px;
+}
+
+.mobileLink {
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobileLink:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mobileCta {
+  margin-top: 6px;
+  text-align: center;
+  background: var(--accent);
+  color: white;
+  font-weight: 900;
+  text-decoration: none;
+  padding: 12px 14px;
+  border-radius: 999px;
+}
+
+/* Breakpoint */
+@media (max-width: 900px) {
+  .navDesktop {
+    display: none;
+  }
+  .burger {
+    display: inline-block;
+  }
 }

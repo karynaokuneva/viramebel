@@ -1,0 +1,144 @@
+.hero {
+  position: relative;
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.bgWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.bg {
+  position: absolute;
+  inset: -30px;
+  background-image: url("/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+  transform: translate3d(0, 0, 0) scale(1.08);
+  filter: saturate(0.95);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.62),
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.55)
+  );
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  padding: 64px 0 32px;
+  color: white;
+}
+
+.kicker {
+  display: inline-flex;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  margin-bottom: 16px;
+}
+
+.h1 {
+  margin: 0;
+  font-size: 56px;
+  line-height: 1.05;
+  letter-spacing: -0.6px;
+  max-width: 18ch;
+}
+
+.p {
+  margin: 14px 0 0;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.86);
+  max-width: 62ch;
+}
+
+.actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.primaryBtn {
+  background: var(--accent);
+  color: white;
+  font-weight: 900;
+  text-decoration: none;
+  padding: 12px 18px;
+  border-radius: 999px;
+}
+
+.primaryBtn:hover {
+  filter: brightness(0.96);
+}
+
+.secondaryBtn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-weight: 900;
+  text-decoration: none;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.secondaryBtn:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.stats {
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 980px;
+}
+
+.statCard {
+  padding: 14px 14px;
+  border-radius: 22px;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+}
+
+.statNum {
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+
+.statLabel {
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.82);
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: calc(100vh - 64px);
+  }
+
+  .h1 {
+    font-size: 40px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}

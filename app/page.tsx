@@ -1,16 +1,18 @@
 import Link from "next/link";
 import styles from "./page.module.css";
+import { Hero } from "@/components/Hero";
 
 export default function HomePage() {
   return (
     <main>
+      <Hero />
+
       <section className={styles.hero}>
         <div className={`container ${styles.heroGrid}`}>
           <div>
             <p className={styles.kicker}>
               Одеса та область • меблі на замовлення
             </p>
-
             <h1 className={styles.h1}>
               Кухні, шафи та гардеробні — під ваші розміри
             </h1>
