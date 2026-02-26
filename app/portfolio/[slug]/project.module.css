@@ -1,51 +1,106 @@
-.top {
+.wrap {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 14px;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 18px;
   align-items: start;
 }
 
-.metaTitle {
-  font-weight: 900;
-  margin-bottom: 8px;
+.media {
+  padding: 14px;
 }
 
-.metaText {
-  color: var(--muted);
-  margin-bottom: 12px;
+.info {
+  padding: 14px;
 }
 
-.cta {
+.gallery {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.thumb {
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* текст/бейджи */
+.metaRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 800;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.badgeMuted {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 800;
+  background: rgba(0, 0, 0, 0.03);
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.desc {
+  margin: 8px 0 0;
+  line-height: 1.5;
+}
+
+.descMuted {
+  margin: 8px 0 0;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+/* кнопки */
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.primary,
+.secondary {
   display: inline-flex;
-  background: var(--accent);
-  color: white;
-  font-weight: 900;
+  align-items: center;
+  justify-content: center;
   padding: 10px 14px;
   border-radius: 999px;
+  font-weight: 800;
   text-decoration: none;
 }
 
-.cta:hover {
-  filter: brightness(0.96);
+.primary {
+  background: var(--accent);
+  color: white;
 }
 
-.h2 {
-  margin: 20px 0 12px;
-  font-size: 22px;
-  font-weight: 900;
+.secondary {
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  color: rgba(0, 0, 0, 0.85);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+.form {
+  margin-top: 14px;
 }
 
-@media (max-width: 900px) {
-  .top {
+/* 📱 мобилка */
+@media (max-width: 860px) {
+  .wrap {
     grid-template-columns: 1fr;
   }
-  .grid {
+
+  .gallery {
     grid-template-columns: 1fr;
   }
 }

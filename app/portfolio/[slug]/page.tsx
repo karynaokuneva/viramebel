@@ -1,66 +1,102 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+
 import { projects } from "@/data/projects";
+import { categories } from "@/data/categories";
 import { PageHeader } from "@/components/PageHeader";
+import { LeadForm } from "@/components/LeadForm";
 import { PlaceholderImage } from "@/components/PlaceholderImage";
+
 import styles from "./project.module.css";
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = projects.find((p) => p.slug === params.slug);
+type PageProps = {
+  params: Promise<{ slug: string }>;
+};
 
-  if (!project) {
-    return (
-      <main>
-        <PageHeader
-          title="Проєкт не знайдено"
-          subtitle="Схоже, такого проєкту немає."
-        />
-        <div className="container">
-          <Link
-            href="/katalog"
-            style={{ color: "var(--primary)", fontWeight: 800 }}
-          >
-            Повернутися до каталогу
-          </Link>
-        </div>
-      </main>
-    );
-  }
+// ✅ SEO для проекта
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+
+  if (!project) return { title: "Проєкт не знайдено | ViraMebel" };
+
+  const title = project.title
+    ? `${project.title} | ViraMebel`
+    : `Проєкт | ViraMebel`;
+
+  const description =
+    project.description ??
+    "Портфоліо меблів на замовлення в Одесі та області. Дізнайтесь вартість — залиште заявку.";
+
+  return { title, description };
+}
+
+function getCategoryTitle(slug: string) {
+  return categories.find((c) => c.slug === slug)?.title ?? slug;
+}
+
+export default async function ProjectPage({ params }: PageProps) {
+  const { slug } = await params;
+
+  const project = projects.find((p) => p.slug === slug);
+  if (!project) return notFound();
+
+  const categoryTitle = getCategoryTitle(project.categorySlug);
 
   return (
     <main>
       <PageHeader
         title={project.title ?? "Проєкт"}
-        subtitle={
-          project.material
-            ? `Матеріал: ${project.material}`
-            : "Приклад виконаної роботи"
-        }
+        subtitle={`${categoryTitle}${project.subSlug ? ` • ${project.subSlug}` : ""}`}
       />
 
-      <div className="container" style={{ paddingBottom: 28 }}>
-        <div className={styles.top}>
-          <div className="card" style={{ padding: 16 }}>
-            <div className={styles.metaTitle}>Коротко</div>
-            <div className={styles.metaText}>
-              {project.description ??
-                "Опис можна додати пізніше (не обовʼязково)."}
-            </div>
+      <div className={`container ${styles.wrap}`}>
+        {/* ЛЕВАЯ КОЛОНКА: фото */}
+        <div className={`card ${styles.media}`}>
+          <PlaceholderImage label={project.coverLabel} height={420} />
+          <div className={styles.gallery}>
+            {project.galleryLabels.map((g) => (
+              <div key={g} className={styles.thumb}>
+                <PlaceholderImage label={g} height={120} />
+              </div>
+            ))}
+          </div>
+        </div>
 
-            <Link href="/rozrahunok" className={styles.cta}>
-              Замовити розрахунок подібного
+        {/* ПРАВАЯ КОЛОНКА: инфо */}
+        <aside className={`card ${styles.info}`}>
+          <div className={styles.metaRow}>
+            <span className={styles.badge}>{categoryTitle}</span>
+            {project.material ? (
+              <span className={styles.badgeMuted}>{project.material}</span>
+            ) : null}
+          </div>
+
+          {project.description ? (
+            <p className={styles.desc}>{project.description}</p>
+          ) : (
+            <p className={styles.descMuted}>
+              Опис додамо пізніше. Можемо розрахувати вартість під ваші розміри.
+            </p>
+          )}
+
+          <div className={styles.actions}>
+            <Link className={styles.primary} href="/rozrahunok">
+              Замовити розрахунок
+            </Link>
+            <Link className={styles.secondary} href="/kontakty">
+              Зв’язатися з нами
             </Link>
           </div>
 
-          <PlaceholderImage label={project.coverLabel} height={260} />
-        </div>
-
-        <h2 className={styles.h2}>Галерея</h2>
-
-        <div className={styles.grid}>
-          {project.galleryLabels.map((label, idx) => (
-            <PlaceholderImage key={idx} label={label} height={220} />
-          ))}
-        </div>
+          <div className={styles.form}>
+            {/* Переиспользуемая форма */}
+            <LeadForm variant="contact" />
+          </div>
+        </aside>
       </div>
     </main>
   );

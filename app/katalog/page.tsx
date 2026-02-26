@@ -53,7 +53,7 @@ export default function CatalogPage() {
           <div className={styles.grid}>
             {projects.map((p) => (
               <ProjectCard
-                key={p.id}
+                key={p.slug}
                 href={`/portfolio/${p.slug}`}
                 label={p.coverLabel}
                 title={p.title}
