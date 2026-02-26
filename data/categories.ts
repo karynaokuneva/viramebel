@@ -24,7 +24,7 @@ export const categories: Category[] = [
     sub: [
       { slug: "vbudovani", title: "Вбудовані" },
       { slug: "kutovi", title: "Кутові" },
-      { slug: "dzеркальні", title: "Дзеркальні" },
+      { slug: "dzеrkalni", title: "Дзеркальні" },
     ],
   },
   { id: "cat-living", slug: "vitalni", title: "Вітальні" },
