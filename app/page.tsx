@@ -1,6 +1,13 @@
 import Link from "next/link";
 import styles from "./page.module.css";
 import { Hero } from "@/components/Hero";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Меблі на замовлення в Одесі | Кухні, шафи, гардеробні",
+  description:
+    "Виготовлення меблів на замовлення в Одесі: кухні, шафи-купе, гардеробні та офісні меблі. Безкоштовний замір, власне виробництво, гарантія якості.",
+};
 
 export default function HomePage() {
   return (
@@ -59,6 +66,49 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+      <section className={styles.section}>
+        <div className="container">
+          <h2 className={styles.h2}>
+            Виготовлення меблів під замовлення з повним контролем якості
+          </h2>
+          {/* TODO: текст */}
+        </div>
+      </section>
+
+      <section className={styles.sectionAlt}>
+        <div className="container">
+          <h2 className={styles.h2}>Наші напрямки виробництва</h2>
+          {/* TODO: категорії */}
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <div className="container">
+          <h2 className={styles.h2}>Чому клієнти обирають нас</h2>
+          {/* TODO: переваги */}
+        </div>
+      </section>
+
+      <section className={styles.sectionAlt}>
+        <div className="container">
+          <h2 className={styles.h2}>Як ми працюємо</h2>
+          {/* TODO: етапи */}
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <div className="container">
+          <h2 className={styles.h2}>Матеріали та фурнітура</h2>
+          {/* TODO: матеріали */}
+        </div>
+      </section>
+
+      <section className={styles.sectionCta}>
+        <div className="container">
+          <h2 className={styles.h2}>Розрахуємо вартість вашого проєкту</h2>
+          {/* TODO: CTA */}
         </div>
       </section>
     </main>

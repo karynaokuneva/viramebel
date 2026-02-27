@@ -135,6 +135,27 @@
   border: 1px solid rgba(17, 24, 39, 0.08);
 }
 
+.section {
+  padding: 56px 0;
+}
+
+.sectionAlt {
+  padding: 56px 0;
+  background: #fafafa;
+}
+
+.sectionCta {
+  padding: 64px 0;
+  background: #1f2937;
+  color: #fff;
+}
+
+.h2 {
+  font-size: 28px;
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
 @media (max-width: 900px) {
   .heroGrid {
     grid-template-columns: 1fr;
